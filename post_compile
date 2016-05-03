@@ -13,5 +13,6 @@ pip install waitress
 
 pip install -r ${BUILD_DIR}/requirements.txt
 
+mkdir _build _static
 # Build Sphinx documentation
-(cd ${BUILD_DIR} && make apidoc html)
+(cd ${BUILD_DIR} && sphinx-build -b html -a -n . _build)
