@@ -18,17 +18,17 @@ ENV_DIR=$3
 # Override Procfile from $ROOT_DIR
 cp $ROOT_DIR/Procfile ${BUILD_DIR}
 
-# Override wsgi file from $BUILD_DIR/docs folder or use the default one
-if [ -f $BUILD_DIR/docs/wsgi.py ]; then
-  cp $BUILD_DIR/docs/wsgi.py ${BUILD_DIR}
+# Override wsgi file from $BUILD_DIR folder or use the default one
+if [ -f $BUILD_DIR/wsgi.py ]; then
+  cp $BUILD_DIR/wsgi.py ${BUILD_DIR}
 else
   cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
 fi
 
 # post_compile will be executed by Python buildpack
-# Override post_compile file from $BUILD_DIR/docs folder or use the default one
-if [ -f $BUILD_DIR/docs/post_compile ]; then
-  cp $BUILD_DIR/docs/post_compile ${BUILD_DIR}/bin/post_compile
+# Override post_compile file from $BUILD_DIR folder or use the default one
+if [ -f $BUILD_DIR/post_compile ]; then
+  cp $BUILD_DIR/post_compile ${BUILD_DIR}/bin/post_compile
 else
   cp $ROOT_DIR/post_compile ${BUILD_DIR}/bin/post_compile
 fi
