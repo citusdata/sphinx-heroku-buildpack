@@ -1,3 +1,3 @@
 import static
 
-application = static.Cling('/app/docs/_build/html')
+application = static.Cling('/app/_build/html')
