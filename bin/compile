@@ -25,6 +25,7 @@ else
   cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
 fi
 
+mkdir -p $BUILD_DIR/bin
 # post_compile will be executed by Python buildpack
 # Override post_compile file from $BUILD_DIR folder or use the default one
 if [ -f $BUILD_DIR/post_compile ]; then
