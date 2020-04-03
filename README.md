@@ -66,7 +66,7 @@ You can have a custom `wsgi.py` file to enable `oauth2` authentication and use `
 
 * Create a wsgi.py file in your docs folder
 ```shell
-touch docs/wsgi.py
+touch wsgi.py
 ```
 
 * Customize the `wsgi.py` file to authenticate user login using [wsgi-oauth2](https://github.com/dahlia/wsgi-oauth2) and [SSL](https://github.com/jacobian/wsgi-sslify).
@@ -113,7 +113,7 @@ google = GoogleService(allowed_domains=os.environ.get('GOOGLE_ALLOWED_DOMAINS'))
 
 client = google.make_client(client_id=key, client_secret=secret, scope="email")
 
-application = static.Cling('/app/docs/_build/html')
+application = static.Cling('/app/_build/html')
 application = client.wsgi_middleware(application, secret=secret.encode('utf-8'), path='/oauth2/')
 application = sslify(application, proxy_header='X-Forwarded-Proto')
 
@@ -123,7 +123,7 @@ application = sslify(application, proxy_header='X-Forwarded-Proto')
 
 * Create a post_compile file in your docs folder
 ```shell
-touch docs/post_compile
+touch post_compile
 ```
 
 * Customize your post_compile
@@ -133,8 +133,8 @@ touch docs/post_compile
 Your custom commands
 ...
 
-pip install -r ${BUILD_DIR}/docs/requirements.txt
+pip install -r ${BUILD_DIR}/requirements.txt
 
 # Build Sphinx documentation
-(cd ${BUILD_DIR}/docs && make apidoc html)
+(cd ${BUILD_DIR} && make apidoc html)
 ```
