@@ -5,7 +5,7 @@ WORKDIR /app
 
 ENV STACK=heroku-16
 
-RUN mkdir -p /app/builds /var/env /tmp/build-cache /tmp/sphinx-heroku-buildpack /app/docs
+RUN mkdir -p /app/builds /var/env /tmp/build-cache /tmp/sphinx-heroku-buildpack
 
 # Install heroku cli
 RUN curl -sLo- https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz | tar xzf - -C /opt
@@ -14,7 +14,6 @@ RUN heroku --version
 
 # Setup Sphinx test docs
 COPY . /tmp/sphinx-heroku-buildpack
-COPY ./test/docs /app/docs
 
 # Setup fake heroku Python app
 RUN echo "pip" > /app/requirements.txt

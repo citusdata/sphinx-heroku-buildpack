@@ -37,9 +37,9 @@ fi;
 
 # Get sphinx build-dir
 echo -e "\necho-build-dir:\n\t@echo '\$(BUILDDIR)'\n" >> ${BUILD_DIR}/Makefile
-(cd ${BUILD_DIR}/docs && make echo-build-dir > ${BUILD_DIR}/.build-dir)
+(cd ${BUILD_DIR} && make echo-build-dir > ${BUILD_DIR}/.build-dir)
 
 puts-step "Build Sphinx docs"
 
 # Build Sphinx documentation
-(cd ${BUILD_DIR}/docs && make html) | indent
+(cd ${BUILD_DIR} && make html) | indent

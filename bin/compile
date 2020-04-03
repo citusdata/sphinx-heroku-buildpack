@@ -23,7 +23,7 @@ puts-step "Change Procfile to serve Sphinx docs"
 cp $ROOT_DIR/Procfile ${BUILD_DIR}
 
 puts-step "Copy WSGI configuration"
-# Override wsgi file from $BUILD_DIR/docs folder or use the default one
+# Override wsgi file from $BUILD_DIR folder or use the default one
 if [ -f $BUILD_DIR/wsgi.py ]; then
   cp $BUILD_DIR/wsgi.py ${BUILD_DIR}
 else
